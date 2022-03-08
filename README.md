@@ -19,4 +19,4 @@ Run `npm run prod` to run nodejs server serving angular app
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/Leon-Bor/sterni-bingo/master/src/assets/screenshot-3.png" width=30% height=30%>
+<img src="https://raw.githubusercontent.com/Leon-Bor/sterni-bingo/master/src/assets/screenshot-3.png" width=50% height=50%>
