@@ -6,10 +6,10 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main ]
+    branches: [ master ]
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ main ] 
+    branches: [ master ] 
 
 env:
   REGISTRY: ghcr.io
