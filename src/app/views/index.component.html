@@ -1,14 +1,21 @@
 <div class="container">
   <h1 class="headline">
     STERNI BINGO
-    <span class="name" *ngIf="dataService.name"><span>von</span> <span class="uppercase value">{{dataService.name}}</span></span>
+    <span class="name" *ngIf="dataService.name"
+      ><span>von</span>
+      <span class="uppercase value">{{ dataService.name }}</span></span
+    >
   </h1>
 
-  <p class="sub">Bist du auch immer schon viel zu besoffen und checkst garnichts mehr?</p>
+  <p class="sub">
+    Bist du auch immer schon viel zu besoffen und checkst garnichts mehr?
+  </p>
 
   <p class="intro">
-    Du kannst da unten einfach deine Spielfelder anlegen und deine Kronkorken hier virtuell abspeichern. Das ganze kannste dann mit einem
-    sogenanntem Link immer wieder aufrufen und neue Kronkorken hinzufügen. Sobald ihr einen Bingo habt, geben wir euch bescheid.
+    Du kannst da unten einfach deine Spielfelder anlegen und deine Kronkorken
+    hier virtuell abspeichern. Das ganze kannste dann mit einem sogenanntem Link
+    immer wieder aufrufen und neue Kronkorken hinzufügen. Sobald ihr einen Bingo
+    habt, geben wir euch bescheid.
   </p>
 
   <div class="box" *ngIf="hatSchonGescheckt">
@@ -19,15 +26,23 @@
       <button (click)="setHatGescheckt('-1')">Ehm, was?</button>
     </div>
 
-    <p *ngIf="hatGescheckt === '1'">Super, denn kannste dir ja entspannt weiter einen reinlöten.</p>
+    <p *ngIf="hatGescheckt === '1'">
+      Super, denn kannste dir ja entspannt weiter einen reinlöten.
+    </p>
 
     <p *ngIf="hatGescheckt === '-1'">
-      Geil, du checkst ja echt garnichts mehr. Du sollst die Zahlen und Spielfelder eintragen, das schaffste schon! Ich hab da höchtes
-      Vertrauen in die Sterni-Trinker.
+      Geil, du checkst ja echt garnichts mehr. Du sollst die Zahlen und
+      Spielfelder eintragen, das schaffste schon! Ich hab da höchtes Vertrauen
+      in die Sterni-Trinker.
     </p>
   </div>
 
-  <a class="what-is-sterni-bingo" href="https://www.sternburg-bier.de/aktuelles/bingo.html" target="_blank">Was ist Sternburg Bingo?</a>
+  <a
+    class="what-is-sterni-bingo"
+    href="https://www.sternburg-bier.de/aktuelles/bingo.html"
+    target="_blank"
+    >Was ist Sternburg Bingo?</a
+  >
 
   <h2>Trage deine Kronkorken ein</h2>
 
@@ -45,7 +60,11 @@
       />
     </div>
     <img src="/assets/korken.png" />
-    <button (click)="onAddValue()" class="send" [ngClass]="{'big': addValue != ''}">
+    <button
+      (click)="onAddValue()"
+      class="send"
+      [ngClass]="{ big: addValue != '' }"
+    >
       <svg
         version="1.1"
         id="Capa_1"
@@ -54,7 +73,7 @@
         x="0px"
         y="0px"
         viewBox="0 0 512 512"
-        style="enable-background: new 0 0 512 512;"
+        style="enable-background: new 0 0 512 512"
         xml:space="preserve"
       >
         <g>
@@ -70,11 +89,17 @@
   </div>
 
   <div class="all-korken">
-    <div *ngFor="let k of dataService.korken; let i = index" class="korken" [ngClass]="{'hide': !isFirstKorken(k,i)}">
+    <div
+      *ngFor="let k of dataService.korken; let i = index"
+      class="korken"
+      [ngClass]="{ hide: !isFirstKorken(k, i) }"
+    >
       <img src="/assets/rate-star-button.svg" />
-      <p>{{k}}</p>
+      <p>{{ k }}</p>
       <button class="delete" (click)="onKorkenDelete(k)"></button>
-      <span *ngIf="countKorken(k) > 1" class="count">{{countKorken(k)}}x</span>
+      <span *ngIf="countKorken(k) > 1" class="count"
+        >{{ countKorken(k) }}x</span
+      >
     </div>
   </div>
 </div>
@@ -83,11 +108,20 @@
 </div>
 
 <div class="fields">
-  <app-field *ngFor="let f of dataService.fields; let i = index" [fieldIndex]="i"></app-field>
+  <app-field
+    *ngFor="let f of dataService.fields; let i = index"
+    [fieldIndex]="i"
+  ></app-field>
 </div>
 
 <div class="container">
-  <button class="add-field" *ngIf="dataService.fields.length < 50" (click)="onFieldAdd()">Spielfeld hinzufügen</button>
+  <button
+    class="add-field"
+    *ngIf="dataService.fields.length < 50"
+    (click)="onFieldAdd()"
+  >
+    Spielfeld hinzufügen
+  </button>
 </div>
 
 <div class="container" *ngIf="dataService.archiveFields.length > 0">
@@ -95,14 +129,19 @@
 </div>
 
 <div class="bingos" *ngIf="dataService.archiveFields.length > 0">
-  <app-field [archive]="true" *ngFor="let f of dataService.archiveFields; let i = index" [fieldIndex]="i"></app-field>
+  <app-field
+    [archive]="true"
+    *ngFor="let f of dataService.archiveFields; let i = index"
+    [fieldIndex]="i"
+  ></app-field>
 </div>
 
 <div class="container" *ngIf="!dataService.name">
   <h2>Wie soll dein Sterni-Bingo Name lauten?</h2>
   <p>
-    Schick und noch kurz einen Namen, sodass deine Saufkumpanen wissen um wessen Bingo es sich hier handelt. Dann kannste den Link, der
-    anschließend kommt, problemlos teilen.
+    Schick und noch kurz einen Namen, sodass deine Saufkumpanen wissen um wessen
+    Bingo es sich hier handelt. Dann kannste den Link, der anschließend kommt,
+    problemlos teilen.
   </p>
 
   <div class="name-input">
@@ -126,7 +165,7 @@
         x="0px"
         y="0px"
         viewBox="0 0 492.004 492.004"
-        style="enable-background: new 0 0 492.004 492.004;"
+        style="enable-background: new 0 0 492.004 492.004"
         xml:space="preserve"
       >
         <g>
@@ -146,23 +185,23 @@
 </div>
 
 <div class="container" *ngIf="dataService.name">
-  <h2><strong class="uppercase">{{dataService.name}},</strong> hier der Link zum Zechen</h2>
+  <h2>
+    <strong class="uppercase">{{ dataService.name }},</strong> hier der Link zum
+    Zechen
+  </h2>
   <p>
-    Diesen Link da unten kannst du mit deiner Saufgemeinschaft teilen und gemeinsam versuchen ein Bingo zu bekommen. Der Link speichert auch
-    den aktuellen Stand. Er wird auch gerade auf diesem Gerät gespeichert, für die Faulen unter euch.
+    Diesen Link da unten kannst du mit deiner Saufgemeinschaft teilen und
+    gemeinsam versuchen ein Bingo zu bekommen. Der Link speichert auch den
+    aktuellen Stand. Er wird auch gerade auf diesem Gerät gespeichert, für die
+    Faulen unter euch.
   </p>
 
   <div class="sauf-link">
-    <p>https://sterni-bingo.de?saufLink={{dataService.saufLink}}</p>
+    <p>https://sterni-bingo.de?saufLink={{ dataService.saufLink }}</p>
   </div>
-  <a href="#" class="new-link" (click)="onNewLink()">Ich brauch ein neuen Link!</a>
-</div>
-
-<div class="container">
-  <div class="box">
-    <!-- sterni display -->
-    <div id="635952131"></div>
-  </div>
+  <a href="#" class="new-link" (click)="onNewLink()"
+    >Ich brauch ein neuen Link!</a
+  >
 </div>
 
 <footer>
@@ -172,13 +211,19 @@
         <img class="bewusst" alt="bier" src="/assets/bewusst.png" />
       </a>
       <a href="https://battlejukebox.com/" target="_blank">
-        <img class="jukebox" alt="battlejukebox.com" src="/assets/jukebox.png" />
+        <img
+          class="jukebox"
+          alt="battlejukebox.com"
+          src="/assets/jukebox.png"
+        />
       </a>
     </div>
 
     <div class="fuss">
       <a routerLink="/fuck-off" routerLinkActive="active">Impressum</a>
-      <a routerLink="/who-actually-cares" routerLinkActive="active">Datenschutz</a>
+      <a routerLink="/who-actually-cares" routerLinkActive="active"
+        >Datenschutz</a
+      >
     </div>
   </div>
 </footer>
