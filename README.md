@@ -1,9 +1,8 @@
 # Sterni-Bingo
 
-Find your Sternburg Export Beer Bingo faster.
-
 <img src="https://raw.githubusercontent.com/Leon-Bor/sterni-bingo/master/src/assets/screenshot-1.png" width=70% height=70%>
 
+Find your Sternburg Export Beer Bingo faster.
 <img src="hhttps://raw.githubusercontent.com/Leon-Bor/sterni-bingo/master/src/assets/screenshot-2.png" width=70% height=70%>
 
 ## Development server
