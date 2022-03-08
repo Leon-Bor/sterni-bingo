@@ -17,4 +17,6 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 
 Run `npm run prod` to run nodejs server serving angular app
 
+## Screenshot
+
 <img src="https://raw.githubusercontent.com/Leon-Bor/sterni-bingo/master/src/assets/screenshot-3.png" width=30% height=30%>
