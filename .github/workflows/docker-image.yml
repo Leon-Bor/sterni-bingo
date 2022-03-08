@@ -45,5 +45,5 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          tags: ${{ env.REGISTRY }}/leon-bor/slot-machine:latest
+          tags: ${{ env.REGISTRY }}/leon-bor/sterni-bingo:latest
           push: ${{ github.event_name != 'pull_request' }}
