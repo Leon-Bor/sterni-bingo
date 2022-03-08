@@ -1,2 +1,2 @@
 User-Agent: *
-Sitemap: https://sterni-bingo.de/sitemap.xml
+Sitemap: https://sterni-bingo.blh.app/sitemap.xml
