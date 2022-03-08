@@ -1,0 +1,184 @@
+<div class="container">
+  <h1 class="headline">
+    STERNI BINGO
+    <span class="name" *ngIf="dataService.name"><span>von</span> <span class="uppercase value">{{dataService.name}}</span></span>
+  </h1>
+
+  <p class="sub">Bist du auch immer schon viel zu besoffen und checkst garnichts mehr?</p>
+
+  <p class="intro">
+    Du kannst da unten einfach deine Spielfelder anlegen und deine Kronkorken hier virtuell abspeichern. Das ganze kannste dann mit einem
+    sogenanntem Link immer wieder aufrufen und neue Kronkorken hinzufügen. Sobald ihr einen Bingo habt, geben wir euch bescheid.
+  </p>
+
+  <div class="box" *ngIf="hatSchonGescheckt">
+    <p class="q">Haste das verstanden?</p>
+
+    <div class="buttons" *ngIf="hatGescheckt === '0'">
+      <button (click)="setHatGescheckt('1')">Ja, normal</button>
+      <button (click)="setHatGescheckt('-1')">Ehm, was?</button>
+    </div>
+
+    <p *ngIf="hatGescheckt === '1'">Super, denn kannste dir ja entspannt weiter einen reinlöten.</p>
+
+    <p *ngIf="hatGescheckt === '-1'">
+      Geil, du checkst ja echt garnichts mehr. Du sollst die Zahlen und Spielfelder eintragen, das schaffste schon! Ich hab da höchtes
+      Vertrauen in die Sterni-Trinker.
+    </p>
+  </div>
+
+  <a class="what-is-sterni-bingo" href="https://www.sternburg-bier.de/aktuelles/bingo.html" target="_blank">Was ist Sternburg Bingo?</a>
+
+  <h2>Trage deine Kronkorken ein</h2>
+
+  <div class="korken-input" *ngIf="dataService.korken.length < 500">
+    <div class="input">
+      <input
+        id="korken-input"
+        ng-maxlength="2"
+        type="number"
+        minlength="1"
+        placeholder="00"
+        [value]="addValue"
+        (input)="onValueChange($event)"
+        (keyup.enter)="onAddValue()"
+      />
+    </div>
+    <img src="/assets/korken.png" />
+    <button (click)="onAddValue()" class="send" [ngClass]="{'big': addValue != ''}">
+      <svg
+        version="1.1"
+        id="Capa_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512 512"
+        style="enable-background: new 0 0 512 512;"
+        xml:space="preserve"
+      >
+        <g>
+          <g>
+            <path
+              d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216
+			v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"
+            />
+          </g>
+        </g>
+      </svg>
+    </button>
+  </div>
+
+  <div class="all-korken">
+    <div *ngFor="let k of dataService.korken; let i = index" class="korken" [ngClass]="{'hide': !isFirstKorken(k,i)}">
+      <img src="/assets/rate-star-button.svg" />
+      <p>{{k}}</p>
+      <button class="delete" (click)="onKorkenDelete(k)"></button>
+      <span *ngIf="countKorken(k) > 1" class="count">{{countKorken(k)}}x</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2>Trage die Spielfelder ein</h2>
+</div>
+
+<div class="fields">
+  <app-field *ngFor="let f of dataService.fields; let i = index" [fieldIndex]="i"></app-field>
+</div>
+
+<div class="container">
+  <button class="add-field" *ngIf="dataService.fields.length < 50" (click)="onFieldAdd()">Spielfeld hinzufügen</button>
+</div>
+
+<div class="container" *ngIf="dataService.archiveFields.length > 0">
+  <h2>Deine Bingos</h2>
+</div>
+
+<div class="bingos" *ngIf="dataService.archiveFields.length > 0">
+  <app-field [archive]="true" *ngFor="let f of dataService.archiveFields; let i = index" [fieldIndex]="i"></app-field>
+</div>
+
+<div class="container" *ngIf="!dataService.name">
+  <h2>Wie soll dein Sterni-Bingo Name lauten?</h2>
+  <p>
+    Schick und noch kurz einen Namen, sodass deine Saufkumpanen wissen um wessen Bingo es sich hier handelt. Dann kannste den Link, der
+    anschließend kommt, problemlos teilen.
+  </p>
+
+  <div class="name-input">
+    <input
+      id="name-input"
+      type="text"
+      minlength="1"
+      maxlength="30"
+      placeholder="Hier Name eingeben..."
+      [value]="dataService.name || ''"
+      (input)="onNameChange($event)"
+      (keyup.enter)="onAddName()"
+    />
+
+    <button (click)="onAddName()" class="send">
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 492.004 492.004"
+        style="enable-background: new 0 0 492.004 492.004;"
+        xml:space="preserve"
+      >
+        <g>
+          <g>
+            <path
+              d="M484.14,226.886L306.46,49.202c-5.072-5.072-11.832-7.856-19.04-7.856c-7.216,0-13.972,2.788-19.044,7.856l-16.132,16.136
+         c-5.068,5.064-7.86,11.828-7.86,19.04c0,7.208,2.792,14.2,7.86,19.264L355.9,207.526H26.58C11.732,207.526,0,219.15,0,234.002
+         v22.812c0,14.852,11.732,27.648,26.58,27.648h330.496L252.248,388.926c-5.068,5.072-7.86,11.652-7.86,18.864
+         c0,7.204,2.792,13.88,7.86,18.948l16.132,16.084c5.072,5.072,11.828,7.836,19.044,7.836c7.208,0,13.968-2.8,19.04-7.872
+         l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,484.14,226.886z"
+            />
+          </g>
+        </g>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<div class="container" *ngIf="dataService.name">
+  <h2><strong class="uppercase">{{dataService.name}},</strong> hier der Link zum Zechen</h2>
+  <p>
+    Diesen Link da unten kannst du mit deiner Saufgemeinschaft teilen und gemeinsam versuchen ein Bingo zu bekommen. Der Link speichert auch
+    den aktuellen Stand. Er wird auch gerade auf diesem Gerät gespeichert, für die Faulen unter euch.
+  </p>
+
+  <div class="sauf-link">
+    <p>https://sterni-bingo.de?saufLink={{dataService.saufLink}}</p>
+  </div>
+  <a href="#" class="new-link" (click)="onNewLink()">Ich brauch ein neuen Link!</a>
+</div>
+
+<div class="container">
+  <div class="box">
+    <!-- sterni display -->
+    <div id="635952131"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="ads">
+      <a href="https://www.bierbewusstgeniessen.de/" target="_blank">
+        <img class="bewusst" alt="bier" src="/assets/bewusst.png" />
+      </a>
+      <a href="https://battlejukebox.com/" target="_blank">
+        <img class="jukebox" alt="battlejukebox.com" src="/assets/jukebox.png" />
+      </a>
+    </div>
+
+    <div class="fuss">
+      <a routerLink="/fuck-off" routerLinkActive="active">Impressum</a>
+      <a routerLink="/who-actually-cares" routerLinkActive="active">Datenschutz</a>
+    </div>
+  </div>
+</footer>

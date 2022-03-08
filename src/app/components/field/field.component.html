@@ -1,0 +1,258 @@
+<div class="fields archive--{{archive}}">
+  <button *ngIf="!archive" class="delete" (click)="dataService.deleteField(fieldIndex)"></button>
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[0][0])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}00"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[0][0]"
+      (input)="onChange($event,0,0)"
+      (blur)="onBlur($event,0,0)"
+    />
+  </div>
+  <div class="field rand2" [ngClass]="{'circled': getCircleImage(field[0][1])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}01"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[0][1]"
+      (input)="onChange($event,0,1)"
+      (blur)="onBlur($event,0,1)"
+    />
+  </div>
+  <div class="field rand3" [ngClass]="{'circled': getCircleImage(field[0][2])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}02"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[0][2]"
+      (input)="onChange($event,0,2)"
+      (blur)="onBlur($event,0,2)"
+    />
+  </div>
+  <div class="field rand4" [ngClass]="{'circled': getCircleImage(field[0][3])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}03"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[0][3]"
+      (input)="onChange($event,0,3)"
+      (blur)="onBlur($event,0,3)"
+    />
+  </div>
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[0][4])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}04"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[0][4]"
+      (input)="onChange($event,0,4)"
+      (blur)="onBlur($event,0,4)"
+    />
+  </div>
+
+  <div class="field rand2" [ngClass]="{'circled': getCircleImage(field[1][0])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}10"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[1][0]"
+      (input)="onChange($event,1,0)"
+      (blur)="onBlur($event,1,0)"
+    />
+  </div>
+  <div class="field rand3" [ngClass]="{'circled': getCircleImage(field[1][1])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}11"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[1][1]"
+      (input)="onChange($event,1,1)"
+      (blur)="onBlur($event,1,1)"
+    />
+  </div>
+  <div class="field rand4" [ngClass]="{'circled': getCircleImage(field[1][2])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}12"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[1][2]"
+      (input)="onChange($event,1,2)"
+      (blur)="onBlur($event,1,2)"
+    />
+  </div>
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[1][3])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}13"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[1][3]"
+      (input)="onChange($event,1,3)"
+      (blur)="onBlur($event,1,3)"
+    />
+  </div>
+  <div class="field rand2" [ngClass]="{'circled': getCircleImage(field[1][4])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}14"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[1][4]"
+      (input)="onChange($event,1,4)"
+      (blur)="onBlur($event,1,4)"
+    />
+  </div>
+
+  <div class="field rand3" [ngClass]="{'circled': getCircleImage(field[2][0])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}20"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[2][0]"
+      (input)="onChange($event,2,0)"
+      (blur)="onBlur($event,2,0)"
+    />
+  </div>
+  <div class="field rand4" [ngClass]="{'circled': getCircleImage(field[2][1])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}21"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[2][1]"
+      (input)="onChange($event,2,1)"
+      (blur)="onBlur($event,2,1)"
+    />
+  </div>
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[2][2])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}22"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[2][2]"
+      (input)="onChange($event,2,2)"
+      (blur)="onBlur($event,2,2)"
+    />
+  </div>
+  <div class="field rand2" [ngClass]="{'circled': getCircleImage(field[2][3])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}23"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[2][3]"
+      (input)="onChange($event,2,3)"
+      (blur)="onBlur($event,2,3)"
+    />
+  </div>
+  <div class="field rand3" [ngClass]="{'circled': getCircleImage(field[2][4])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}24"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[2][4]"
+      (input)="onChange($event,2,4)"
+      (blur)="onBlur($event,2,4)"
+    />
+  </div>
+
+  <div class="field rand4" [ngClass]="{'circled': getCircleImage(field[3][0])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}30"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[3][0]"
+      (input)="onChange($event,3,0)"
+      (blur)="onBlur($event,3,0)"
+    />
+  </div>
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[3][1])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}31"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[3][1]"
+      (input)="onChange($event,3,1)"
+      (blur)="onBlur($event,3,1)"
+    />
+  </div>
+  <div class="field rand2" [ngClass]="{'circled': getCircleImage(field[3][2])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}32"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[3][2]"
+      (input)="onChange($event,3,2)"
+      (blur)="onBlur($event,3,2)"
+    />
+  </div>
+  <div class="field rand3" [ngClass]="{'circled': getCircleImage(field[3][3])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}33"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[3][3]"
+      (input)="onChange($event,3,3)"
+      (blur)="onBlur($event,3,3)"
+    />
+  </div>
+  <div class="field rand4" [ngClass]="{'circled': getCircleImage(field[3][4])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}34"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[3][4]"
+      (input)="onChange($event,3,4)"
+      (blur)="onBlur($event,3,4)"
+    />
+  </div>
+
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[4][0])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}40"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[4][0]"
+      (input)="onChange($event,4,0)"
+      (blur)="onBlur($event,4,0)"
+    />
+  </div>
+  <div class="field rand2" [ngClass]="{'circled': getCircleImage(field[4][1])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}41"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[4][1]"
+      (input)="onChange($event,4,1)"
+      (blur)="onBlur($event,4,1)"
+    />
+  </div>
+  <div class="field rand3" [ngClass]="{'circled': getCircleImage(field[4][2])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}42"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[4][2]"
+      (input)="onChange($event,4,2)"
+      (blur)="onBlur($event,4,2)"
+    />
+  </div>
+  <div class="field rand4" [ngClass]="{'circled': getCircleImage(field[4][3])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}43"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[4][3]"
+      (input)="onChange($event,4,3)"
+      (blur)="onBlur($event,4,3)"
+    />
+  </div>
+  <div class="field rand1" [ngClass]="{'circled': getCircleImage(field[4][4])}">
+    <input
+      type="text"
+      id="{{fieldIndex}}44"
+      onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+      [(ngModel)]="field[4][4]"
+      (input)="onChange($event,4,4)"
+      (blur)="onBlur($event,4,4)"
+    />
+  </div>
+  <span class="field-number">{{fieldIndex + 1}}</span>
+</div>

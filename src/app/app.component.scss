@@ -1,0 +1,37 @@
+.sterni-saufen {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  background: rgb(185, 1, 1);
+  background: radial-gradient(circle, rgba(185, 1, 1, 1) 0%, rgba(121, 9, 9, 1) 100%);
+  .ani {
+    background-image: url(/assets/rate-star-button.svg);
+    animation: spin 200s linear infinite;
+    position: absolute;
+    width: 200rem;
+    pointer-events: none;
+    height: 200rem;
+    opacity: 0.05;
+    background-size: contain;
+
+    top: -50rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @media only screen and (max-width: 768px) {
+      width: 70rem;
+      height: 70rem;
+      top: -20rem;
+      animation: spin 100s linear infinite;
+    }
+  }
+  &::ng-deep {
+    position: relative;
+    z-index: 3;
+    > * {
+      width: 100%;
+    }
+  }
+}

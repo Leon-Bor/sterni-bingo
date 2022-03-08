@@ -1,0 +1,305 @@
+.headline {
+  position: relative;
+  .name {
+    position: absolute;
+    right: 0;
+    bottom: -1.5rem;
+    text-shadow: 2px 2px #00000036;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    white-space: nowrap;
+
+    @media only screen and (max-width: 768px) {
+      left: 0;
+      bottom: -2.5rem;
+    }
+    .value {
+      font-size: 2.5rem;
+      @media only screen and (max-width: 768px) {
+        font-size: 2rem;
+      }
+      @media only screen and (max-width: 375px) {
+        font-size: 1.2rem;
+      }
+    }
+    span {
+      padding-right: 0.5rem;
+      @media only screen and (max-width: 768px) {
+        font-size: 1.2rem;
+      }
+      @media only screen and (max-width: 375px) {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.what-is-sterni-bingo {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.sub {
+  font-size: 2rem;
+}
+.intro {
+  font-size: 1.2rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.box {
+  width: 100%;
+  margin-top: 1rem;
+  background-color: rgba(0, 0, 0, 0.11);
+  padding: 2rem;
+  border-radius: 3px;
+  .q {
+    margin-top: 0;
+    font-size: 1.8rem;
+  }
+}
+
+.korken-input {
+  position: relative;
+  .send {
+    &.big {
+      height: 5rem;
+      width: 5rem;
+    }
+
+    border-radius: 50%;
+    position: absolute;
+    background-color: #ff0000;
+    right: 0px;
+    border: 2px solid white;
+    &:hover {
+      background-color: #be0000;
+    }
+    svg {
+      fill: white;
+      width: 2rem;
+      pointer-events: none;
+    }
+  }
+  .input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      text-align: center;
+      background-color: transparent;
+      outline: 0;
+      border: 0;
+      border-bottom: 2px white solid;
+      width: 5rem;
+      margin-top: 0.5rem;
+      font-size: 4rem;
+    }
+  }
+  img {
+    max-width: 300px;
+  }
+}
+
+.all-korken {
+  display: grid;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+
+  .korken {
+    position: relative;
+
+    &:hover {
+      .delete {
+        display: flex;
+      }
+    }
+
+    &.hide {
+      display: none;
+    }
+
+    .count {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0.5rem;
+      border-radius: 100%;
+      background-color: white;
+      color: black;
+      width: 0.6rem;
+      height: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    img {
+      width: 100px;
+    }
+    p {
+      position: absolute;
+      top: 1rem;
+      bottom: 0;
+    }
+
+    .delete {
+      border-radius: 50%;
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2rem;
+      height: 2rem;
+      background-image: url(/assets/cancel.svg);
+      padding: 0.3rem;
+      background-size: 1rem;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-position: center;
+
+      @media only screen and (max-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+}
+
+.add-field {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.fields {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 26rem));
+
+  @media only screen and (max-width: 768px) {
+    gap: 0rem;
+  }
+}
+.bingos {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 13rem));
+
+  > app-field {
+    height: 13rem;
+    width: 13rem;
+    transform: scale(0.5);
+  }
+
+  @media only screen and (max-width: 768px) {
+    gap: 0rem;
+  }
+}
+
+.sauf-link {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 2rem;
+  p {
+    color: black;
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+.fuss {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  a {
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+}
+
+.ads {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+  flex-direction: row;
+  .jukebox {
+    width: 12rem;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+    @media only screen and (max-width: 768px) {
+      width: 8rem;
+    }
+  }
+  .bewusst {
+    max-width: 8rem;
+    @media only screen and (max-width: 768px) {
+      max-width: 6rem;
+    }
+  }
+}
+
+.new-link {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+footer {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.51);
+}
+
+.name-input {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  svg {
+    width: 1.55rem;
+    height: 1.55rem;
+    fill: white;
+  }
+  input {
+    margin-right: 1rem;
+    color: black;
+    padding: 1rem;
+    border-radius: 3px;
+    border: 0;
+    outline: 0;
+    @media only screen and (max-width: 768px) {
+      max-width: 14rem;
+    }
+    @media only screen and (max-width: 320px) {
+      max-width: 12rem;
+    }
+  }
+}
+
+.uppercase {
+  text-transform: capitalize;
+}

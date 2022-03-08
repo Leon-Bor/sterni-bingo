@@ -1,0 +1,17 @@
+<div class="choose-container">
+  <h2>Wähle ein Spielfeld aus!</h2>
+  <p>Wir konnten durch eine hochwissenschaftliche Datenanalyse alle Spielfelder identifizieren. Ist das nicht super?</p>
+
+  <div class="fields">
+    <img src="/assets/field0.jpg" (click)="onChooseField(0)" />
+    <img src="/assets/field1.jpg" (click)="onChooseField(1)" />
+    <img src="/assets/field2.jpg" (click)="onChooseField(2)" />
+    <img src="/assets/field3.jpg" (click)="onChooseField(3)" />
+    <img src="/assets/field4.jpg" (click)="onChooseField(4)" />
+    <img src="/assets/field5.jpg" (click)="onChooseField(5)" />
+  </div>
+
+  <button (click)="onNoClick()" type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: inline-block;">
+    Wieder Schließen
+  </button>
+</div>

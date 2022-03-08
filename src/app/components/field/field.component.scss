@@ -1,0 +1,89 @@
+.fields {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: black;
+  gap: 2px;
+  border: 2px solid black;
+
+  box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.2);
+
+  @media only screen and (max-width: 768px) {
+    transform: scale(0.8);
+  }
+
+  &.archive--true {
+    pointer-events: none;
+  }
+
+  &:hover {
+    .delete {
+      display: flex;
+    }
+  }
+
+  .delete {
+    border-radius: 50%;
+    display: none;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(/assets/cancel.svg);
+    padding: 0.3rem;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position: center;
+
+    @media only screen and (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  .field-number {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    font-size: 20rem;
+    font-weight: bold;
+    opacity: 0.075;
+    z-index: 2;
+    color: black;
+  }
+
+  .field {
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    &.circled {
+      &.rand1 {
+        background-image: url(/assets/circle-0.png);
+      }
+      &.rand2 {
+        background-image: url(/assets/circle-1.png);
+      }
+      &.rand3 {
+        background-image: url(/assets/circle-2.png);
+      }
+      &.rand4 {
+        background-image: url(/assets/circle-3.png);
+      }
+    }
+
+    input {
+      color: black;
+      background-color: transparent;
+
+      width: 4rem;
+      height: 4rem;
+      outline: 0;
+      border: 0;
+      text-align: center;
+      font-weight: 300;
+      font-size: 2.5rem;
+    }
+  }
+}

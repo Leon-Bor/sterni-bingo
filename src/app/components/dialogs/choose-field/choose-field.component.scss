@@ -1,0 +1,72 @@
+h2 {
+  color: black;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.875em;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  text-shadow: 2px 2px #00000036;
+  margin-bottom: 0;
+}
+p {
+  color: black;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  max-width: 500px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.choose-container {
+  // max-height: 100vh;
+  // overflow: auto;
+}
+.swal2-cancel {
+  margin-top: 20px;
+  background-color: white !important;
+  color: black;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  &:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    cursor: pointer;
+  }
+  &:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+  img {
+    width: 150px;
+    height: 150px;
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.33s ease-in-out;
+    margin: 2px;
+    &:hover {
+      margin: 0px;
+      transform: scale(1.2);
+      cursor: pointer;
+      border: 2px solid rgb(145, 0, 0);
+      border-radius: 3px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media only screen and (max-width: 470px) {
+    grid-template-columns: 1fr;
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
