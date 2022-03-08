@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "prod": "bin/www",
     "docker:build": "docker build -t sterni-bingo .",
-    "docker:run": "docker run -d --name=sterni-bingo-local -p 3003:3000 sterni-bingo"
+    "docker:run": "docker run -d --name=sterni-bingo-local -p 3003:3000 ghcr.io/leon-bor/sterni-bingo:latest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",

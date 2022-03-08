@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://sterni-bingo.de'
+  backendUrl: 'https://sterni-bingo.blh.app',
 };

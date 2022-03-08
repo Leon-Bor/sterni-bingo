@@ -1,12 +1,12 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const { exec } = require('child_process');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
+const { exec } = require("child_process");
+const low = require("lowdb");
+const FileSync = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync('db.json');
+const adapter = new FileSync("./store/db.json");
 const db = low(adapter);
-const Schema = require('validate');
+const Schema = require("validate");
 
 const bingoSchema = new Schema({
   korken: {
@@ -20,7 +20,11 @@ const bingoSchema = new Schema({
     each: {
       type: Array,
       length: { min: 0, max: 5 },
-      each: { type: Array, length: { min: 0, max: 5 }, each: { type: String, length: { min: 0, max: 2 } } },
+      each: {
+        type: Array,
+        length: { min: 0, max: 5 },
+        each: { type: String, length: { min: 0, max: 2 } },
+      },
     },
     length: { min: 0, max: 50 },
   },
@@ -38,7 +42,11 @@ const bingoSchema = new Schema({
   },
   archiveBingoNumbers: {
     type: Array,
-    each: { type: Array, each: { type: String, length: { min: 0, max: 2 } }, length: { min: 0, max: 5 } },
+    each: {
+      type: Array,
+      each: { type: String, length: { min: 0, max: 2 } },
+      length: { min: 0, max: 5 },
+    },
     length: { min: 0, max: 500 },
   },
   archiveFields: {
@@ -46,7 +54,11 @@ const bingoSchema = new Schema({
     each: {
       type: Array,
       length: { min: 0, max: 5 },
-      each: { type: Array, length: { min: 0, max: 5 }, each: { type: String, length: { min: 0, max: 2 } } },
+      each: {
+        type: Array,
+        length: { min: 0, max: 5 },
+        each: { type: String, length: { min: 0, max: 2 } },
+      },
     },
     length: { min: 0, max: 50 },
   },
@@ -56,7 +68,7 @@ const bingoSchema = new Schema({
 db.defaults({ bingos: {} }).write();
 
 /* GET home page. */
-router.get('/uuid/:saufLink', function (req, res, next) {
+router.get("/uuid/:saufLink", function (req, res, next) {
   try {
     const { saufLink } = req.params;
 
@@ -68,26 +80,55 @@ router.get('/uuid/:saufLink', function (req, res, next) {
   }
 });
 
-router.post('/uuid/:saufLink', async (req, res, next) => {
+router.post("/uuid/:saufLink", async (req, res, next) => {
   try {
     const { saufLink } = req.params;
-    const { lastUpdate, fields, korken, archiveBingoNumbers, archiveFields, name } = req.body;
+    const {
+      lastUpdate,
+      fields,
+      korken,
+      archiveBingoNumbers,
+      archiveFields,
+      name,
+    } = req.body;
 
     const bingo = db.get(`bingos.${saufLink}`).value();
     const currentTime = new Date().getTime();
 
-    const [error] = bingoSchema.validate({ fields, korken, lastUpdate: currentTime });
+    const [error] = bingoSchema.validate({
+      fields,
+      korken,
+      lastUpdate: currentTime,
+    });
 
     if (!error) {
       if (bingo && bingo.lastUpdate && lastUpdate) {
         if (bingo.lastUpdate > lastUpdate) {
           res.json({ status: 200, reload: true });
         } else {
-          await db.set(`bingos.${saufLink}`, { fields, korken, archiveBingoNumbers, archiveFields, name, lastUpdate: currentTime }).write();
+          await db
+            .set(`bingos.${saufLink}`, {
+              fields,
+              korken,
+              archiveBingoNumbers,
+              archiveFields,
+              name,
+              lastUpdate: currentTime,
+            })
+            .write();
           res.json({ status: 200, reload: false, currentTime });
         }
       } else {
-        await db.set(`bingos.${saufLink}`, { fields, korken, archiveBingoNumbers, archiveFields, name, lastUpdate: currentTime }).write();
+        await db
+          .set(`bingos.${saufLink}`, {
+            fields,
+            korken,
+            archiveBingoNumbers,
+            archiveFields,
+            name,
+            lastUpdate: currentTime,
+          })
+          .write();
         res.json({ status: 200, reload: false, currentTime });
       }
     } else {
@@ -99,7 +140,7 @@ router.post('/uuid/:saufLink', async (req, res, next) => {
 });
 
 /* GET home page. */
-router.get('/build12345678909876543212345678', function (req, res, next) {
+router.get("/build12345678909876543212345678", function (req, res, next) {
   try {
     const command = `sudo git pull && sudo npm i && sudo pm2 restart sterni-bingo`;
 
@@ -118,7 +159,7 @@ router.get('/build12345678909876543212345678', function (req, res, next) {
 });
 
 /* GET home page. */
-router.get('/see-data', async (req, res, next) => {
+router.get("/see-data", async (req, res, next) => {
   try {
     const data = db.get(`bingos`).value();
 

@@ -14,7 +14,7 @@ WORKDIR /app
  
 COPY --from=Builder /app ./
 RUN rm -rf ./src
-VOLUME [ "/app/db.json" ]
+VOLUME [ "/app/store" ]
 
 CMD ["node", "bin/www"]
 EXPOSE 80
