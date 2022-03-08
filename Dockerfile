@@ -16,5 +16,5 @@ COPY --from=Builder /app ./
 RUN rm -rf ./src
 VOLUME [ "/app/store" ]
 
+EXPOSE 3000
 CMD ["node", "bin/www"]
-EXPOSE 80
