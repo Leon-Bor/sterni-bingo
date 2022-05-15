@@ -1,6 +1,15 @@
 <div class="choose-container">
   <h2>Wähle ein Spielfeld aus!</h2>
-  <p>Wir konnten durch eine hochwissenschaftliche Datenanalyse alle Spielfelder identifizieren. Ist das nicht super?</p>
+  <p style="color: red; margin-bottom: 30px">
+    Die analyse läuft aktuell noch. Kurs chillen, und Daten auschecken dann sind
+    wir wieder alle im Boot. Könnte aber auch stimmen, kurz 2-3 bier abwarten
+    oder Morgen... oder nen lütten. Ansonsten: feld 6 rein und dann weiter
+    SAUFEN.
+  </p>
+  <p>
+    Wir konnten durch eine hochwissenschaftliche Datenanalyse alle Spielfelder
+    identifizieren. Ist das nicht super?
+  </p>
 
   <div class="fields">
     <img src="/assets/field0.jpg" (click)="onChooseField(0)" />
@@ -11,7 +20,13 @@
     <img src="/assets/field5.jpg" (click)="onChooseField(5)" />
   </div>
 
-  <button (click)="onNoClick()" type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: inline-block;">
+  <button
+    (click)="onNoClick()"
+    type="button"
+    class="swal2-cancel swal2-styled"
+    aria-label=""
+    style="display: inline-block"
+  >
     Wieder Schließen
   </button>
 </div>
