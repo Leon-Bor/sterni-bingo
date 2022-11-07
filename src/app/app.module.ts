@@ -10,13 +10,33 @@ import { FieldComponent } from './components/field/field.component';
 import { KorkenComponent } from './components/korken/korken.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { NgxPiwikProModule } from '@piwikpro/ngx-piwik-pro';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChooseFieldComponent } from './components/dialogs/choose-field/choose-field.component';
+
 @NgModule({
-  declarations: [AppComponent, IndexComponent, ImprintComponent, PrivacyComponent, FieldComponent, KorkenComponent, ChooseFieldComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, MatDialogModule],
+  declarations: [
+    AppComponent,
+    IndexComponent,
+    ImprintComponent,
+    PrivacyComponent,
+    FieldComponent,
+    KorkenComponent,
+    ChooseFieldComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    NgxPiwikProModule.forRoot(
+      '7969ef77-9592-4e5b-9562-39182080f463',
+      'https://blh.containers.piwik.pro'
+    ),
+  ],
   providers: [],
   entryComponents: [ChooseFieldComponent],
   exports: [MatDialogModule],
