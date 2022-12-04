@@ -25,6 +25,20 @@ html {
 body {
   width: 100%;
 
+  
+  .sterni-saufen {
+    * { 
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
   .bingo-numbers {
     display: flex;
     width: 100%;
@@ -77,16 +91,6 @@ body {
   /* Firefox */
   input[type="number"] {
     -moz-appearance: textfield;
-  }
-  * {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
   }
   input {
     font-family: "Roboto", sans-serif;
