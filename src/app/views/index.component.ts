@@ -1,9 +1,9 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { v4 as uuidv4 } from 'uuid';
-import { MatDialog } from '@angular/material/dialog';
 import { ChooseFieldComponent } from '../components/dialogs/choose-field/choose-field.component';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-index',
@@ -17,7 +17,12 @@ export class IndexComponent implements OnInit, AfterViewInit {
   addValue = '';
   name = null;
 
-  constructor(public dataService: DataService, private route: ActivatedRoute, private router: Router, public dialog: MatDialog) {
+  constructor(
+    public dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog
+  ) {
     this.route.queryParams.subscribe((params) => {
       if (params?.saufLink) {
         this.dataService.getBingo(params?.saufLink);
@@ -72,6 +77,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   onFieldAdd() {
     const dialogRef = this.dialog.open(ChooseFieldComponent, {
       data: {},
+      maxHeight: '90vh',
     });
   }
 
