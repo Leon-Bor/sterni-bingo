@@ -61,6 +61,7 @@ jobs:
           bearer-token: ${{ secrets.PORTAINER_TOKEN }}
           headers: '{ "x-registry-auth": "eyJyZWdpc3RyeUlkIjozfQ==" }'
           timeout: 10000
+          body: '{"fromImage":"ghcr.io/leon-bor/sterni-bingo:master"}'
 
 
       - name: "Use response"
