@@ -60,4 +60,7 @@ jobs:
           method: "POST"
           bearer-token: ${{ secrets.PORTAINER_TOKEN }}
           headers: '{ "x-registry-auth": "eyJyZWdpc3RyeUlkIjozfQ==" }'
+
+      - name: "Use response"
+        run: echo ${{ steps.api.outputs.response }}
           
