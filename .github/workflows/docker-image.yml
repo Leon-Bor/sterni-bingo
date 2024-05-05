@@ -48,3 +48,16 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
+      
+      - name: "Call portainer api to redeploy container"
+        uses: indiesdev/curl@v1.1
+        with:
+          url: "https://portainer.blh.app/api/endpoints/2/docker/images/create?fromImage=ghcr.io%2Fleon-bor%2Fsterni-bingo:master"
+          method: "POST"
+          bearer-token: ${{ secrets.PORTAINER_TOKEN }}
+          headers: '{ "x-registry-auth": "eyJyZWdpc3RyeUlkIjozfQ==" }'
+          
