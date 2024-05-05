@@ -59,5 +59,5 @@ jobs:
             whoami
             cd docker/
             ls -a
-            docker compose pull
-            docker compose up -d
+            docker-compose pull
+            docker-compose up -d
