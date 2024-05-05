@@ -60,5 +60,5 @@ jobs:
             cd docker/
             ls -a
             docker-compose pull sternibingo
-            docker-compose up -d -b sternibingo
+            docker-compose up --detach --build sternibingo
 
