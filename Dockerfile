@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . . 
 
-ENV NODE_OPTIONS=--openssl-legacy-provider
-
 RUN npm install --legacy-peer-deps
 RUN npm run build 
 RUN npm prune --production 
